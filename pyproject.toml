@@ -3,13 +3,23 @@ name = "playwright-ai-playground"
 version = "0.1.0"
 description = "Python browser automation examples using pytest, Playwright, and Ollama."
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "ollama>=0.4.7",
-    "playwright>=1.50.0",
-    "pytest>=8.3.4",
-    "pytest-playwright>=0.7.0",
+authors = [
+    { name = "Robert Deringer", email = "r.deringer@live.com" }
 ]
+requires-python = ">=3.12"
+dependencies = [
+    "ollama>=0.6.3",
+    "playwright>=1.65.2",
+    "pytest>=9.2.0",
+    "pytest-playwright>=0.10.0",
+]
+
+[project.scripts]
+playwright-ai-playground = "playwright_ai_playground:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
 
 [tool.uv]
 package = false
