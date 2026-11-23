@@ -1,0 +1,5 @@
+# test execution:
+
+uv run pytest test_login.py
+
+uv run pytest -k test_login_with_valid_credentials --headed
