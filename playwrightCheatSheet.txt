@@ -1,5 +1,8 @@
 # test execution:
+https://playwright.dev/python/docs/running-tests
 
 uv run pytest test_login.py
 uv run pytest -k test_login_with_valid_credentials --headed
 uv run pytest -k test_login_with_valid_credentials --headed --numprocesses 2
+
+uv run pytest -k test_login_failed_locator --tracing retain-on-failure --screenshot only-on-failure --output test-results --junitxml=results.xml

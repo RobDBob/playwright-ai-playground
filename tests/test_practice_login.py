@@ -6,7 +6,7 @@ from playwright.sync_api import Page, expect
 def submit_login(page: Page, url: str, username: str, password: str) -> None:
     page.goto(url)
     page.get_by_label("Username").fill(username)
-    page.get_by_label("Password").fill(password)
+    page.get_by_label("Password1").fill(password)
     page.get_by_role("button", name="Submit").click()
 
 
@@ -34,6 +34,16 @@ def test_login_rejects_invalid_username(
 
 
 def test_login_rejects_invalid_password(
+    page: Page,
+    practice_login_url: str,
+    practice_username: str,
+) -> None:
+    submit_login(page, practice_login_url, practice_username, "invalid-password")
+
+    expect(page.locator("#error")).to_have_text("Your password is invalid!")
+
+
+def test_login_failed_locator(
     page: Page,
     practice_login_url: str,
     practice_username: str,
